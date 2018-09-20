@@ -178,7 +178,7 @@ A maior dificuldade encontrada foi no fim do desenvolvimento, não conseguimos d
 
 ## Referências
 
-Slides de aula do professor Christian Azambuja Pagot
+ - Slides de aula do professor Christian Azambuja Pagot
 
-http://matheuspraxedescg.blogspot.com/
+ - http://matheuspraxedescg.blogspot.com/
 
