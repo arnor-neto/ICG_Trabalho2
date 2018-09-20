@@ -3,7 +3,7 @@
 ## Trabalho 2: Implementação de um pipeline gráfico
 
 O objetivo deste trabalho é implementar um pipeline gráfico em c++ usando as matrizes de transformação para manipular vértices, que permitam a formação de modelos na tela com a sensação de distorção perspectiva.
-Para tal implementação, utilizamos o framework fornecido pelo professor Christian Azambuja Pagot.
+Para tal implementação, utilizamos o framework fornecido pelo professor Christian Azambuja Pagot e a biblioteca Assimp.
 
 Trabalho desenvolvido pelos alunos:
 
@@ -141,3 +141,44 @@ A última etapa do pipeline transforma os vértices para o espaço de tela, perm
 
     mat4x4 mViewport = mViewTranslate * mViewScale * mViewInvert;
 ```
+
+### Resultados
+Com o uso da biblioteca Assimp, carregamos os vértices do modelo e desenhamos suas primitivas com o função drawTriangle desenvolvida no trabalho 1.
+
+```
+//Carregando o modelo e desenhando
+
+    vector<glm::vec4> vertices = loadModel("monkey.obj");
+
+    for (int i = 0; i < vertices.size(); i++)
+    {
+        vertices[i] = mPipeline * vertices[i];
+        vertices[i] = vertices[i] / vertices[i].w;
+    }
+
+    for (int i = 0; i < vertices.size(); i += 3)
+    {
+
+        struct pixel p1 = {(int)vertices[i].x, (int)vertices[i].y, 255, 255, 255, 255};
+
+        struct pixel p2 = {(int)vertices[i + 1].x, (int)vertices[i + 1].y, 255, 255, 255, 255};
+
+        struct pixel p3 = {(int)vertices[i + 2].x, (int)vertices[i + 2].y, 255, 255, 255, 255};
+
+        drawTriangle(p1, p2, p3);
+    }
+```
+
+![image](https://user-images.githubusercontent.com/42072854/45791655-f0584880-bc60-11e8-9e75-b178baac61a7.png)
+
+![image](https://user-images.githubusercontent.com/42072854/45791709-36ada780-bc61-11e8-8c53-77811ed68fc2.png)
+
+### Dificuldades Encontradas
+A maior dificuldade encontrada foi no fim do desenvolvimento, não conseguimos dominar os conhecimentos do loader e dos parâmetros avançados da câmera para fazer a comparação do modelo com o OpenGL no tempo limite de entrega do trabalho.
+
+## Referências
+
+Slides de aula do professor Christian Azambuja Pagot
+
+http://matheuspraxedescg.blogspot.com/
+
