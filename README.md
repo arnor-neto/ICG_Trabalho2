@@ -14,7 +14,7 @@ Dandara Estrela Braga - Matrícula: 20170000870
 ### Introdução: O pipeline gráfico
 O pipeline gráfico consiste em uma série de tranformações aplicadas à vértices de um objeto tridimensional com o objetivo de representá-los em uma tela bidimensional. O pipeline se divide em etapas e cada uma delas aplica matrizes para transformar os vértices entre sistemas de coordenadas. Nosso pipeline contém as seguintes tranformações:
 
-![untitleddocument](https://user-images.githubusercontent.com/42072854/45761005-c28fe700-bc01-11e8-9f75-7de5e3565d01.jpeg)
+![45761005-c28fe700-bc01-11e8-9f75-7de5e3565d01-crop](https://user-images.githubusercontent.com/42072854/45788157-3dcbba00-bc4f-11e8-9772-1a03c5555128.jpeg)
 
 ### 1 - Do Espaço do Objeto para o Espaço do Universo
 Tendo as coordenadas dos vértices do objeto, é preciso posicionar o objeto no universo. Para isso, usamos a matriz Model. Essa matriz é composta por um produto de matrizes de escala, translação e rotação.
@@ -22,17 +22,17 @@ Tendo as coordenadas dos vértices do objeto, é preciso posicionar o objeto no 
 Matriz de Escala:
 Altera o tamanho do objeto no espaço do universo.
 
-![image](https://user-images.githubusercontent.com/42072854/45768221-a5afdf80-bc12-11e8-99cd-5afd2a7c38a3.png)
+![image](https://user-images.githubusercontent.com/42072854/45788116-03fab380-bc4f-11e8-8986-dbd78c0dac5f.png)
 
 Matriz de Translação:
 Move um objeto no espaço do universo.
 
-![image](https://user-images.githubusercontent.com/42072854/45768280-d98b0500-bc12-11e8-8be8-a3d4ce6dfc0f.png)
+![image](https://user-images.githubusercontent.com/42072854/45788127-14129300-bc4f-11e8-9369-1d408a6142e2.png)
 
 Matriz de Rotação:
 Rotaciona um objeto no espaço do universo. Para nossos testes, usamos a rotação no eixo Y.
 
-![image](https://user-images.githubusercontent.com/42072854/45768685-f96ef880-bc13-11e8-9264-36b98fb8ac37.png)
+![image](https://user-images.githubusercontent.com/42072854/45788146-255b9f80-bc4f-11e8-8556-4ec765cef6ef.png)
 
 No código, definimos as matrizes usando a biblioteca GLM, que recebe colunas no formato de linha:
 ```
@@ -59,7 +59,7 @@ No código, definimos as matrizes usando a biblioteca GLM, que recebe colunas no
 ### 2 - Do Espaço do Universo para o Espaço da Câmera
 Depois de os objetos estarem devidamente posicionados no Espaço do Universo, é preciso definir uma câmera que funcionará como ponto de vista do espaço montado. Para construção da câmera, são necessárias sua posição, o vetor up (que define sua orientação) e o vetor look at, que indica o ponto para qual a câmera está direcionada. Com esses parâmetros, é possível construir um sistema de eixos e, posteriormente, uma matriz para o espaço da câmera.
 
-![image](https://user-images.githubusercontent.com/42072854/45769912-5a4c0000-bc17-11e8-919c-034ee171d594.png)
+![image](https://user-images.githubusercontent.com/42072854/45788229-98fdac80-bc4f-11e8-9a94-6023cb55d944.png)
 
 ![image](https://user-images.githubusercontent.com/42072854/45770412-b3686380-bc18-11e8-9b29-8ea0477033d9.png)
 
